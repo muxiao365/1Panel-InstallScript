@@ -42,7 +42,8 @@ sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure h
   - 执行周期：根据需要选择合适的执行周期，例如每天、每周等。
   - 其他设置：根据需要进行其他设置，如启用或禁用邮件通知等。
 #### 日志
-当程序遇到异常情况时，会自动将错误信息写入日志文件。这些日志文件可以帮助你诊断和解决问题。默认情况下，日志文件会保存在以下路径：
+- 当程序遇到异常情况时，会自动将错误信息写入日志文件。
+  - 这些日志文件可以帮助你诊断和解决问题。默认情况下，日志文件会保存在以下路径：
 
 ```
 /setsystem/log/install_script.log
@@ -61,10 +62,11 @@ nano /setsystem/log/install_script.log
 ```
 
 ### 注意事项
-- **空间问题**确保有足够的磁盘空间来存储日志文件，因为日志可能会随着时间增长而变得很大。
+- **空间问题**：确保有足够的磁盘空间来存储日志文件，因为日志可能会随着时间增长而变得很大。
 - **权限问题**：确保你有适当的权限来执行这些操作。如果你不是超级用户（ROOT）权限，请联系系统管理员。
 - **网络连接**：确保你的计算机能够访问互联网，以便成功下载脚本。
-- **安全隐患**：使用 `--insecure` 选项会忽略 SSL 证书验证，若选择执行或使用相关代码，则代表你信任下载源（GitHub）并愿意承担对应后果且不进行追责行为。
+- **安全隐患**：使用 `--insecure` 选项会忽略 SSL 证书验证
+  - 若选择执行或使用相关代码，则代表你信任下载源（GitHub）并愿意承担对应后果且不进行追责行为。
 
 ## 联系方式
 ### 维护者信息
@@ -77,8 +79,16 @@ nano /setsystem/log/install_script.log
 - [1Panel官网](https://1panel.cn)
 - [1Panel Store Unofficial App](https://1p.131.gs)
 
+## 致谢
+感谢所有为项目做出贡献的人。特别感谢以下人员：
+
+- [1Panel 应用商店的非官方应用适配库](https://github.com/okxlin/appstore)
+- [1Panel团队](https://1panel.cn)
+- [破碎工坊云](www.crush.work)
+
 ## Bug反馈
-如果您在使用过程中遇到任何问题或发现任何bug，请前往我的[网站](https://mxine.link/links)下评论。我们将尽快处理您的反馈。
+- 如果您在使用过程中遇到任何问题或发现任何bug
+  - 请前往我的[网站](https://mxine.link/links)下评论。我们将尽快处理您的反馈。
 
 ---
 
@@ -102,13 +112,3 @@ nano /setsystem/log/install_script.log
 ...**The END**...
 
 ---
-
-## 致谢
-感谢所有为项目做出贡献的人。特别感谢以下人员：
-
-- [1Panel 应用商店的非官方应用适配库](https://github.com/okxlin/appstore)
-- [1Panel团队](https://1panel.cn)
-- [破碎工坊云](www.crush.work)
-
-## 联系方式
-更多信息请访问我们的网站：[关于我们](https://mxine.link/about)
