@@ -57,5 +57,7 @@
 
 - [1Panel团队](https://1panel.cn)
 
+- [破碎工坊云](www.crush.work)
+
 ## 联系方式
 更多信息请访问我们的网站：[关于我们](https://mxine.link/about)
