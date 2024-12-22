@@ -60,7 +60,7 @@ debian-panel() {
 
 # CentOS&RedHat-1Panel
 redhat-panel() {
-    apt-get update
+    yum check-update
     echo "1Panel未安装，正在执行安装脚本..." | tee -a "$LOG_FILE"
     curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
     if [ $? -ne 0 ]; then
