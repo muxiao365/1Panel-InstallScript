@@ -104,7 +104,6 @@ fastdocker() {
 		return 1
 	fi
 }
-fastdocker
 
 # 1panel三方加载函数
 panel3apps() {
