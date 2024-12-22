@@ -25,7 +25,7 @@
 - 默认安装在/setsystem/路径下，如果不是请牢记文件位置
 
 ```sh
-sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure https://github.com/muxiao365/1Panel-InstallScript/raw/main/setsystem/panel3git.sh -o panel3git.sh && chmod +x panel3git.sh && . /setsystem/panel3git.sh'
+sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure https://github.com/muxiao365/1Panel-InstallScript/raw/main/setsystem/panel3git.sh -o panel3git.sh && chmod +x panel3git.sh && ./panel3git.sh'
 ```
 
 ### 高级操作
@@ -119,6 +119,11 @@ nano /setsystem/log/install_script.log
 
 ### [2.2.34] - 2024-12-22
 #### 修复mo[one]ok逻辑问题
+- 修复部分已知问题
+- 优化部分逻辑问题
+
+### [2.4.0] - 2024-12-22
+#### 修复fastdocker逻辑问题
 - 修复部分已知问题
 - 优化部分逻辑问题
 
