@@ -10,32 +10,7 @@ LOG_COST="$LOG_DIR/cost.log"
 mkdir -p "$LOG_DIR"
 touch "$LOG_FILE"
 touch "$LOG_COST"
-# ------------------------------Mo[ONE]ok------------------------------
-# 定义DebianMook函数
-Debianmook() {
-	echo "Running Debianmook function" | tee -a "$LOG_FILE"
-	if command -v 1panel &> /dev/null; then
-		panel3apps
-	else
-		debianseew
-		debian-panel
-		fastdocker
-		panel3apps
-	fi
-}
 
-# 定义RedhatMook函数
-Redhatmook() {
-    echo "Running Redhatmook function" | tee -a "$LOG_FILE"
-	if command -v 1panel &> /dev/null; then
-		panel3apps
-	else
-		redhatseew
-		redhat-panel
-		fastdocker
-		panel3apps
-	fi
-}
 # ------------------------------Mo[TWO]ok------------------------------
 # Ubuntu&Debian-seew
 debianseew() {
@@ -149,6 +124,32 @@ panel3apps() {
         echo "Panel3Git删除缓存失败" | tee -a "$LOG_FILE"
         exit 1
     fi
+}
+# ------------------------------Mo[ONE]ok------------------------------
+# 定义DebianMook函数
+Debianmook() {
+	echo "Running Debianmook function" | tee -a "$LOG_FILE"
+	if command -v 1panel &> /dev/null; then
+		panel3apps
+	else
+		debianseew
+		debian-panel
+		fastdocker
+		panel3apps
+	fi
+}
+
+# 定义RedhatMook函数
+Redhatmook() {
+    echo "Running Redhatmook function" | tee -a "$LOG_FILE"
+	if command -v 1panel &> /dev/null; then
+		panel3apps
+	else
+		redhatseew
+		redhat-panel
+		fastdocker
+		panel3apps
+	fi
 }
 # ------------------------------ReskONE------------------------------
 ReskONE() {
