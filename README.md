@@ -1,6 +1,6 @@
 # 1Panel-InstallScript
 ## 简介
-本项目旨在通过安装1Panel，配置Docker镜像加速（1Panel官方），并配置1Panel三方应用市场，适配Ubuntu或Debian及其对应发行版，为1Panel新用户提供更高效的服务器和部署环境。
+本项目旨在通过安装1Panel，配置Docker镜像加速（1Panel官方），并配置1Panel三方应用市场，适配Ubuntu或Debian及其对应发行版，为1Panel新用户提供更高效的服务器和部署环境
 
 ## 功能
 
@@ -16,11 +16,12 @@
 - 配置Docker镜像加速
 - 配置1Panel三方应用市场
 - 三方应用市场自动更新
+- 适配Centos&RedHat
+- 全新架构升级
 
 ## 安装指南
 ### 安装指令
-- 操作系统：Ubuntu, Debian及其对应发行版
-  - **仅适配Ubuntu或Debian及其对应发行版**
+- 操作系统：Ubuntu或Debian及其对应发行版&CentOS或RedHat及其对应发行版
 - 默认安装在/setsystem/路径下，如果不是请牢记文件位置
 
 ```sh
@@ -38,11 +39,11 @@ sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure h
   ```sh
   . /setsystem/panel3git.sh
   ```
-  > 若文件位置您已修改，请将/setsystem替换为实际存放/panel3git.sh脚本的路径。如果1Panel默认安装在/opt路径下，则无需修改；如果不是，请确保修改为正确的安装路径。
-  - 执行周期：根据需要选择合适的执行周期，例如每天、每周等。
-  - 其他设置：根据需要进行其他设置，如启用或禁用邮件通知等。
+  > 若文件位置您已修改，请将/setsystem替换为实际存放/panel3git.sh脚本的路径。如果1Panel默认安装在/opt路径下，则无需修改；如果不是，请确保修改为正确的安装路径
+  - 执行周期：根据需要选择合适的执行周期，例如每天、每周等
+  - 其他设置：根据需要进行其他设置，如启用或禁用邮件通知等
 #### 日志
-- 当程序遇到异常情况时，会自动将错误信息写入日志文件。
+- 当程序遇到异常情况时，会自动将错误信息写入日志文件（install_script.log）
   - 这些日志文件可以帮助你诊断和解决问题。默认情况下，日志文件会保存在以下路径：
 
 ```
@@ -109,6 +110,14 @@ nano /setsystem/log/install_script.log
 - 配置1Panel三方应用市场
 - 三方应用市场自动更新
 
+### [2.0.0] - 2024-12-22
+#### 修改整体框架
+
+- 安装1Panel（centos&redhat版）
+- 配置Docker镜像加速（增加备份）
+- 配置1Panel三方应用市场（日志更全面）
+- 增加系统判断机制
+- 增加cost.log缓存
 ...**The END**...
 
 ---
