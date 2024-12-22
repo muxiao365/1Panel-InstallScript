@@ -1,0 +1,2 @@
+# 1Panel-InstallScript
+本项目旨在通过安装1Panel，配置Docker镜像加速（1Panel官方），并配置1Panel三方应用市场，适配Ubuntu或Debian及其对应发行版，为1Panel新用户提供更高效的服务器和部署环境。
