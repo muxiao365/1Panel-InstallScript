@@ -13,8 +13,19 @@
 - 三方应用市场自动更新
 
 ## 安装指南
+### 安装指令
 - 操作系统：Ubuntu, Debian及其对应发行版
   - **仅适配Ubuntu或Debian及其对应发行版**
+- 默认安装在/setsystem/路径下，如果不是请牢记文件位置
+
+```sh
+sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure https://github.com/muxiao365/1Panel-InstallScript/raw/main/setsystem/panel3git.sh -o panel3git.sh && chmod +x panel3git.sh && ./panel3git.sh'
+```
+
+### 注意事项
+- **权限问题**：确保你有适当的权限来执行这些操作。如果你不是超级用户（ROOT）权限，请联系系统管理员。
+- **网络连接**：确保你的计算机能够访问互联网，以便成功下载脚本。
+- **安全性**：使用 `--insecure` 选项会忽略 SSL 证书验证，若选择执行或使用相关代码，则代表你信任下载源（GitHub）并愿意承担对应后果且不进行追责行为。
 
 ## 联系方式
 ### 维护者信息
