@@ -15,11 +15,11 @@ touch "$LOG_COST"
 # Ubuntu&Debian-seew
 debianseew() {
     install_dependencies() {
-        packages=("jq" "curl" "git" "wget" "sed" "awk" "grep")
+        packages=("jq" "curl" "git" "wget" "sed" "awk" "grep" "nodejs" "npm" "python3-dev" "python3-pip")
         for package in "${packages[@]}"; do
             if ! command -v "$package" &> /dev/null; then
                 echo "$package 未安装，正在执行安装脚本..." | tee -a "$LOG_FILE"
-                (sudo apt-get update && sudo apt-get install -y "$package") 2>&1 | tee -a "$LOG_FILE"
+                sudo apt-get install -y "$package"
                 if [ $? -ne 0 ]; then
                     echo "$package 脚本执行失败" | tee -a "$LOG_FILE"
                     return 1
@@ -27,16 +27,20 @@ debianseew() {
             fi
         done
     } || { echo "install_dependencies 失败" | tee -a "$LOG_FILE"; return 1; }
+    pip3 install tldr
+    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
+    pip3 install thefuck
+    echo 'eval "$(thefuck --alias fuck)"' | tee -a ~/.bashrc
 }
 
 # CentOS&RedHat-seew
 redhatseew() {
     install_dependencies() {
-        packages=("jq" "curl" "git" "wget" "sed" "awk" "grep")
+        packages=("jq" "curl" "git" "wget" "sed" "awk" "grep" "nodejs" "npm" "python3-dev" "python3-pip")
         for package in "${packages[@]}"; do
             if ! command -v "$package" &> /dev/null; then
                 echo "$package 未安装，正在执行安装脚本..." | tee -a "$LOG_FILE"
-                (sudo yum update -y && sudo yum install -y "$package") 2>&1 | tee -a "$LOG_FILE"
+                sudo yum install -y "$package"
                 if [ $? -ne 0 ]; then
                     echo "$package 脚本执行失败" | tee -a "$LOG_FILE"
                     return 1
@@ -44,6 +48,11 @@ redhatseew() {
             fi
         done
     } || { echo "install_dependencies 失败" | tee -a "$LOG_FILE"; return 1; }
+    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
+    pip3 install tldr
+    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
+    pip3 install thefuck
+    echo 'eval "$(thefuck --alias fuck)"' | tee -a ~/.bashrc
 }
 
 
@@ -75,8 +84,8 @@ fastdocker() {
 	mkdir -p /etc/docker
 	touch daemon.json
 	touch daemon.conf
-	cp /etc/docker/daemon.json /etc/djson.ini -y
-	cp /etc/docker/daemon.conf /etc/dconf.ini -y
+	cp /etc/docker/daemon.json /etc/djson.ini | tee -a "$LOG_FILE"
+	cp /etc/docker/daemon.conf /etc/dconf.ini | tee -a "$LOG_FILE"
 	tee /etc/docker/daemon.json <<-'EOF'
 	{
 		"registry-mirrors": [
@@ -94,8 +103,8 @@ fastdocker() {
 		echo "Docker配置脚本执行失败" | tee -a "$LOG_FILE"
 		cd /etc/docker/ 
 		mv daemon.json daemon.conf -y
-		cp /etc/djson.ini /etc/docker/daemon.json -y
-		cp /etc/dconf.ini /etc/docker/daemon.conf -y
+		cp /etc/djson.ini /etc/docker/daemon.json | tee -a "$LOG_FILE"
+		cp /etc/dconf.ini /etc/docker/daemon.conf | tee -a "$LOG_FILE"
 		systemctl stop docker.service | tee -a "$LOG_FILE"
 		systemctl stop docker.socket | tee -a "$LOG_FILE"
 		systemctl start docker.service | tee -a "$LOG_FILE"
