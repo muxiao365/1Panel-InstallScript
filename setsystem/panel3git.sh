@@ -3,11 +3,13 @@
 # 获取当前脚本的目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="$SCRIPT_DIR/log"
+LOG_HOME="$SCRIPT_DIR/imsyyhome"
 LOG_FILE="$LOG_DIR/install_script.log"
 LOG_COST="$LOG_DIR/cost.log"
 
 # 确保日志&目录存在，如果不存在则自动生成
 mkdir -p "$LOG_DIR"
+mkdir -p "$LOG_HOME"
 touch "$LOG_FILE"
 touch "$LOG_COST"
 
@@ -27,6 +29,10 @@ debianseew() {
             fi
         done
     } || { echo "install_dependencies 失败" | tee -a "$LOG_FILE"; return 1; }
+    pip3 install tldr
+    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
+    pip3 install thefuck
+    echo 'eval "$(thefuck --alias fuck)"' | tee -a ~/.bashrc
 }
 
 # CentOS&RedHat-seew
@@ -44,6 +50,11 @@ redhatseew() {
             fi
         done
     } || { echo "install_dependencies 失败" | tee -a "$LOG_FILE"; return 1; }
+    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
+    pip3 install tldr
+    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
+    pip3 install thefuck
+    echo 'eval "$(thefuck --alias fuck)"' | tee -a ~/.bashrc
 }
 
 
@@ -124,17 +135,48 @@ panel3apps() {
         exit 1
     fi
 }
+
+# imsyyhome网站
+imsyyhome() {
+    echo "npm已安装，正在执行安装脚本..." | tee -a "$LOG_FILE"
+    cd "$LOG_HOME"
+    git clone https://github.com/imsyy/home
+    if [ $? -ne 0 ]; then
+        echo "imsyy克隆文件失败" | tee -a "$LOG_FILE"
+        exit 1
+    fi
+    cd "$LOG_HOME/home/"
+    ll | tee -a "$LOG_FILE"
+    if [ $? -ne 0 ]; then
+        echo "执行进入目录操作失败" | tee -a "$LOG_FILE"
+        exit 1
+    fi
+    docker-compose up -d
+    if [ $? -ne 0 ]; then
+        echo "执行docker封装失败" | tee -a "$LOG_FILE"
+        exit 1
+    fi
+    docker-compose ps | tee -a "$LOG_FILE"
+}
+
+# 重启
+newreboot() {
+    reboot
+}
 # ------------------------------Mo[ONE]ok------------------------------
 # 定义DebianMook函数
 Debianmook() {
 	echo "Running Debianmook function" | tee -a "$LOG_FILE"
 	if command -v 1panel &> /dev/null; then
 		panel3apps
+		newreboot
 	else
 		debianseew
 		debian-panel
 		fastdocker
 		panel3apps
+		imsyyhome
+		newreboot
 	fi
 }
 
@@ -143,11 +185,14 @@ Redhatmook() {
     echo "Running Redhatmook function" | tee -a "$LOG_FILE"
 	if command -v 1panel &> /dev/null; then
 		panel3apps
+		newreboot
 	else
 		redhatseew
 		redhat-panel
 		fastdocker
 		panel3apps
+		imsyyhome
+		newreboot
 	fi
 }
 # ------------------------------ReskONE------------------------------
