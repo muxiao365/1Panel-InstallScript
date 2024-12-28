@@ -27,10 +27,6 @@ debianseew() {
             fi
         done
     } || { echo "install_dependencies 失败" | tee -a "$LOG_FILE"; return 1; }
-    pip3 install tldr
-    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
-    pip3 install thefuck
-    echo 'eval "$(thefuck --alias fuck)"' | tee -a ~/.bashrc
 }
 
 # CentOS&RedHat-seew
@@ -48,11 +44,6 @@ redhatseew() {
             fi
         done
     } || { echo "install_dependencies 失败" | tee -a "$LOG_FILE"; return 1; }
-    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
-    pip3 install tldr
-    echo 'export TLDR_LANGUAGE="zh"' | tee -a ~/.bashrc
-    pip3 install thefuck
-    echo 'eval "$(thefuck --alias fuck)"' | tee -a ~/.bashrc
 }
 
 
