@@ -17,6 +17,7 @@
   - "python3-dev"
   - "python3-pip"
 - 安装1Panel
+- 部署基于/imsyy/home的个人主页站
 - 配置Docker镜像加速
 - 配置1Panel三方应用市场
 - 三方应用市场自动更新
@@ -38,6 +39,29 @@ sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure h
 ```
 
 ### 高级操作
+#### imsyyhome
+- 存放位置
+> 文件目录
+```sh
+/setsystem/imsyyhome/home
+```
+
+- 网站配置
+  - 修改`.env.*`文件为`.env`
+  - 打开并修改`.env`文件及`src/assets/socialLinks.json`和`src/assets/siteLinks.json`
+  - 前往1panel删除`imsyy-home`镜像
+  - 保存并运行指令
+> 打开文件目录
+```sh
+cd /setsystem/imsyyhome/home
+```
+> 打包docker
+```sh
+docker-compose up -d
+```
+
+- 注意
+  - 具体操作步骤请前往[imsyy/home](https://github.com/imsyy/home)了解具体操作步骤
 #### 创建新的计划任务
 - 在计划任务页面，点击“添加任务”按钮
 - 在弹出的对话框中，填写以下信息：
@@ -49,8 +73,8 @@ sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure h
   . /setsystem/panel3git.sh
   ```
   > 若文件位置您已修改，请将/setsystem替换为实际存放/panel3git.sh脚本的路径。如果1Panel默认安装在/opt路径下，则无需修改；如果不是，请确保修改为正确的安装路径
-  - 执行周期：根据需要选择合适的执行周期，例如每天、每周等
-  - 其他设置：根据需要进行其他设置，如启用或禁用邮件通知等
+  - 执行周期：根据需要选择合适的执行周期，例如每天、每周等（建议设置凌晨）（每晚自动重启）
+  - 其他设置：根据需要进行其他设置，如启用或禁用通知等
 #### 日志
 - 当程序遇到异常情况时，会自动将错误信息写入日志文件（install_script.log）
   - 这些日志文件可以帮助你诊断和解决问题。默认情况下，日志文件会保存在以下路径：
@@ -161,6 +185,10 @@ nano /setsystem/log/install_script.log
   - "tldr"
   - "thefuck"
 
+### [2.9.12] - 2024-12-28
+#### 功能优化
+- 部署基于/imsyy/home的个人主页站
+- 程序运行结束自动重启
 # ...**The END**...
 
 ---
