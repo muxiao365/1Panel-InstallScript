@@ -12,6 +12,12 @@
   - "sed"
   - "awk"
   - "grep"
+  - "nodejs"
+  - "npm"
+  - "python3-dev"
+  - "python3-pip"
+  - "tldr"
+  - "thefuck"
 - 安装1Panel
 - 配置Docker镜像加速
 - 配置1Panel三方应用市场
@@ -24,8 +30,13 @@
 - 操作系统：Ubuntu或Debian及其对应发行版&CentOS或RedHat及其对应发行版
 - 默认安装在/setsystem/路径下，如果不是请牢记文件位置
 
+> 拉取程序
 ```sh
 sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure https://github.com/muxiao365/1Panel-InstallScript/raw/main/setsystem/panel3git.sh -o panel3git.sh && chmod +x panel3git.sh && ./panel3git.sh'
+```
+> 运行程序
+```sh
+. /setsystem/panel3git.sh
 ```
 
 ### 高级操作
@@ -131,6 +142,18 @@ nano /setsystem/log/install_script.log
 #### 修复脚本中的语法错误和逻辑错误
 - 修复部分Yum已知问题
 - 优化部分逻辑问题
+
+### [2.8.00] - 2024-12-28
+#### 修复脚本中的语法错误&增加适配
+- 修复部分Apt&Yum已知问题
+- 优化部分逻辑问题
+- 增加组件支持
+  - "nodejs"
+  - "npm"
+  - "python3-dev"
+  - "python3-pip"
+  - "tldr"
+  - "thefuck"
 
 ...**The END**...
 
