@@ -16,8 +16,6 @@
   - "npm"
   - "python3-dev"
   - "python3-pip"
-  - "tldr"
-  - "thefuck"
 - 安装1Panel
 - 配置Docker镜像加速
 - 配置1Panel三方应用市场
@@ -105,7 +103,7 @@ nano /setsystem/log/install_script.log
 ---
 
 ## 更新日志
-### [1.0.0] - 2024-12-22
+### [1.0.00] - 2024-12-22
 #### 上传源代码，包含：
 - 检测必要组件并自动安装缺失组件
   - "jq"
@@ -120,7 +118,7 @@ nano /setsystem/log/install_script.log
 - 配置1Panel三方应用市场
 - 三方应用市场自动更新
 
-### [2.0.0] - 2024-12-22
+### [2.0.00] - 2024-12-22
 #### 修改整体框架
 - 安装1Panel（centos&redhat版）
 - 配置Docker镜像加速（增加备份）
@@ -133,7 +131,7 @@ nano /setsystem/log/install_script.log
 - 修复部分已知问题
 - 优化部分逻辑问题
 
-### [2.4.0] - 2024-12-22
+### [2.4.00] - 2024-12-22
 #### 修复fastdocker逻辑问题
 - 修复部分已知问题
 - 优化部分逻辑问题
@@ -154,7 +152,15 @@ nano /setsystem/log/install_script.log
   - "python3-pip"
   - "tldr"
   - "thefuck"
+ 
+### [2.8.50] - 2024-12-28
+#### 修复组件兼容性
+- 修复部分Apt&Yum已知问题
+- 优化部分逻辑问题
+- 取消组件支持（兼容问题）
+  - "tldr"
+  - "thefuck"
 
-...**The END**...
+# ...**The END**...
 
 ---
