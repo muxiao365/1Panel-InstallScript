@@ -3,14 +3,16 @@
 # 获取当前脚本的目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="$SCRIPT_DIR/log"
+LOG_PANEL="$SCRIPT_DIR/panel"
 LOG_FILE="$LOG_DIR/install_script.log"
 LOG_COST="$LOG_DIR/cost.log"
 
 # 确保日志&目录存在，如果不存在则自动生成
 mkdir -p "$LOG_DIR"
-mkdir -p "$LOG_HOME"
+mkdir -p "$LOG_PANEL"
 touch "$LOG_FILE"
 touch "$LOG_COST"
+cd "$LOG_PANEL"
 
 # ------------------------------Mo[TWO]ok------------------------------
 # Ubuntu&Debian-seew
