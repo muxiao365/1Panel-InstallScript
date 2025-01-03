@@ -3,7 +3,6 @@
 # 获取当前脚本的目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="$SCRIPT_DIR/log"
-LOG_HOME="$SCRIPT_DIR/imsyyhome"
 LOG_FILE="$LOG_DIR/install_script.log"
 LOG_COST="$LOG_DIR/cost.log"
 
@@ -166,7 +165,7 @@ Debianmook() {
 		debian-panel
 		fastdocker
 		panel3apps
-		imsyyhome
+		# imsyyhome
 		newreboot
 	fi
 }
