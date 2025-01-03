@@ -125,48 +125,19 @@ panel3apps() {
         exit 1
     fi
 }
-
-# imsyyhome网站
-imsyyhome() {
-    echo "npm已安装，正在执行安装脚本..." | tee -a "$LOG_FILE"
-    cd "$LOG_HOME"
-    git clone https://github.com/imsyy/home
-    if [ $? -ne 0 ]; then
-        echo "imsyy克隆文件失败" | tee -a "$LOG_FILE"
-        exit 1
-    fi
-    cd "$LOG_HOME/home/"
-    ll | tee -a "$LOG_FILE"
-    if [ $? -ne 0 ]; then
-        echo "执行进入目录操作失败" | tee -a "$LOG_FILE"
-        exit 1
-    fi
-    docker-compose up -d
-    if [ $? -ne 0 ]; then
-        echo "执行docker封装失败" | tee -a "$LOG_FILE"
-        exit 1
-    fi
-    docker-compose ps | tee -a "$LOG_FILE"
-}
-
-# 重启
-newreboot() {
-    reboot
-}
 # ------------------------------Mo[ONE]ok------------------------------
 # 定义DebianMook函数
 Debianmook() {
 	echo "Running Debianmook function" | tee -a "$LOG_FILE"
 	if command -v 1panel &> /dev/null; then
 		panel3apps
-		newreboot
+		reboot
 	else
 		debianseew
 		debian-panel
 		fastdocker
 		panel3apps
-		# imsyyhome
-		newreboot
+		reboot
 	fi
 }
 
@@ -175,14 +146,13 @@ Redhatmook() {
     echo "Running Redhatmook function" | tee -a "$LOG_FILE"
 	if command -v 1panel &> /dev/null; then
 		panel3apps
-		newreboot
+		reboot
 	else
 		redhatseew
 		redhat-panel
 		fastdocker
 		panel3apps
-		imsyyhome
-		newreboot
+		reboot
 	fi
 }
 # ------------------------------ReskONE------------------------------
