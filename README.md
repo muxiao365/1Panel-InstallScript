@@ -31,7 +31,7 @@
 
 > 拉取程序
 ```sh
-sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure https://github.com/muxiao365/1Panel-InstallScript/raw/main/setsystem/panel3git.sh -o panel3git.sh && chmod +x panel3git.sh'
+sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure https://github.com/mxine365/1Panel-InstallScript/raw/main/setsystem/panel3git.sh -o panel3git.sh && chmod +x panel3git.sh'
 ```
 > 运行程序
 ```sh
