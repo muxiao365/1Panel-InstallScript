@@ -17,12 +17,12 @@
   - "python3-dev"
   - "python3-pip"
 - 安装1Panel
-- 部署基于/imsyy/home的个人主页站
-- 配置Docker镜像加速
+- 自动配置Docker镜像加速(1Panel源)
 - 配置1Panel三方应用市场
 - 三方应用市场自动更新
-- 适配Centos&RedHat
-- 全新架构升级
+- 适配Ubuntu&Debian（cost.log）
+- 适配Centos&RedHat（cost.log）
+- 模块架构设计
 
 ## 安装指南
 ### 安装指令
@@ -39,29 +39,6 @@ sudo sh -c 'cd / && mkdir -p setsystem && cd setsystem && curl -sSL --insecure h
 ```
 
 ### 高级操作
-#### imsyyhome
-- 存放位置
-> 文件目录
-```sh
-/setsystem/imsyyhome/home
-```
-
-- 网站配置
-  - 修改`.env.*`文件为`.env`
-  - 打开并修改`.env`文件及`src/assets/socialLinks.json`和`src/assets/siteLinks.json`
-  - 前往1panel删除`imsyy-home`镜像
-  - 保存并运行指令
-> 打开文件目录
-```sh
-cd /setsystem/imsyyhome/home
-```
-> 打包docker
-```sh
-docker-compose up -d
-```
-
-- 注意
-  - 具体操作步骤请前往[imsyy/home](https://github.com/imsyy/home)了解具体操作步骤
 #### 创建新的计划任务
 - 在计划任务页面，点击“添加任务”按钮
 - 在弹出的对话框中，填写以下信息：
@@ -105,7 +82,7 @@ nano /setsystem/log/install_script.log
 ## 联系方式
 ### 维护者信息
 如果您有任何问题或建议，请联系我们：
-- About: https://mxine.link/about
+- About: https://mxine.link
 ### 社区支持
 由于我们暂时没有配置社区支持的计划，您可以在以下链接（社区）找到更多信息和支持：
 
@@ -189,6 +166,12 @@ nano /setsystem/log/install_script.log
 #### 功能优化
 - 部署基于/imsyy/home的个人主页站
 - 程序运行结束自动重启
+
+### [2.9.50] - 2024-12-28
+#### 优化部分组件逻辑
+- 取消适配/imsyy/home的个人主页站
+  - 对新手不友好，经过深思熟虑后的结果
+- 优化自动重启逻辑，适配计划任务
 # ...**The END**...
 
 ---
